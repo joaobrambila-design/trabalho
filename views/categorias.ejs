@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias - Renovacell</title>
+    <link rel="stylesheet" href="/css/estilos-lp.css">
+</head>
+<body class="lp-body">
+
+    <header class="lp-header">
+        <div class="lp-container nav-container">
+            <a href="/" class="nav-logo">
+                <img src="/img/logo.png" alt="Renovacell Logo">
+            </a>
+            <nav class="nav-menu">
+                <a href="/" class="nav-link">Início</a>
+                <a href="/produtos" class="nav-link">Produtos</a>
+
+                <% if (typeof usuarioLogado !== 'undefined' && usuarioLogado && usuarioLogado.id_admin !== null) { %>
+                    <a href="/categorias" class="nav-link active">Categorias</a>
+                    <a href="/usuarios" class="nav-link">Usuário</a>
+                    <a href="/movimentacoes" class="nav-link">Movimentações</a>
+                    <a href="/logout" class="btn-nav-outline">Sair (<%= usuarioLogado.nome %>)</a>
+                <% } else if (typeof usuarioLogado !== 'undefined' && usuarioLogado) { %>
+                    <a href="/logout" class="btn-nav-outline">Sair (<%= usuarioLogado.nome %>)</a>
+                <% } else { %>
+                    <a href="/login" class="btn-nav-outline">Área Administrativa</a>
+                <% } %>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="lp-container">
+            
+            <div class="filter-bar-container">
+                <div class="search-box-group">
+                    <span class="search-label">Buscar por Categoria</span>
+                </div>
+                <div class="filter-actions-group">
+                    <div class="select-box-group">
+                        <span class="select-label">Ordenar por</span>
+                        <select class="custom-select">
+                            <option value="nome">Nome</option>
+                        </select>
+                    </div>
+                    <button class="btn-action-yellow">Aplicar</button>
+                </div>
+            </div>
+
+            <div class="categories-grid">
+                <% if (typeof categorias !== 'undefined' && categorias.length > 0) { %>
+                    <% categorias.forEach(cat => { %>
+                        <div class="category-card">
+                            <h3 class="category-title"><%= cat.nome %></h3>
+                            <div class="card-actions-row">
+                                <button class="icon-btn icon-edit" title="Editar">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                                </button>
+                                <button class="icon-btn icon-delete" title="Excluir">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p style="color: #aaaaaa;">Nenhuma categoria cadastrada.</p>
+                <% } %>
+            </div>
+
+            <button class="fab-add-button" title="Adicionar Categoria">
+                <span>+</span>
+            </button>
+
+        </div>
+    </main>
+
+    <footer class="lp-footer">
+        <div class="lp-container">
+            <p>&copy; 2026 Renovacell. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

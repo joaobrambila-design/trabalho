@@ -1,0 +1,691 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.lp-container {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ==========================================================================
+   1. TELAS DE AUTENTICAÇÃO (LOGIN E REGISTRO)
+   ========================================================================== */
+body.auth-body {
+    min-height: 100vh;
+    width: 100%;
+    background: url('/img/fundo.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+}
+
+.auth-overlay {
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.logo-container {
+    margin-bottom: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-img {
+    max-width: 190px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.auth-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    background-color: rgba(220, 220, 220, 0.9);
+    color: #111111;
+    font-size: 14px;
+    outline: none;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-form input::placeholder {
+    color: #666666;
+}
+
+.auth-form input:focus {
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(241, 184, 45, 0.8);
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    background-color: #f1b82d;
+    color: #111111;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover {
+    background-color: #d9a320;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.auth-link {
+    margin-top: 20px;
+    color: #cccccc;
+    font-size: 12px;
+}
+
+.auth-link a {
+    color: #ffffff;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.auth-link a:hover {
+    color: #f1b82d;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO E NAVEGAÇÃO GERAL
+   ========================================================================== */
+.lp-header {
+    background-color: #000000;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo img {
+    height: 60px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-link {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.btn-nav-outline {
+    border: 1px solid #f1b82d;
+    color: #f1b82d;
+    padding: 8px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-nav-outline:hover {
+    background-color: #f1b82d;
+    color: #000000;
+}
+
+/* ==========================================================================
+   3. LANDING PAGE (INÍCIO)
+   ========================================================================== */
+.hero-section {
+    padding: 60px 0 80px 0;
+    background-color: #050505;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: #ffffff;
+}
+
+.hero-title .highlight, .highlight {
+    color: #f1b82d;
+}
+
+.hero-description {
+    color: #aaaaaa;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 36px;
+    max-width: 480px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.btn-yellow {
+    background-color: #f1b82d;
+    color: #000000;
+    padding: 12px 32px;
+    border-radius: 20px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(241, 184, 45, 0.3);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-yellow:hover {
+    background-color: #d9a320;
+}
+
+.btn-outline-dark {
+    background-color: #0d0d0d;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 32px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.btn-outline-dark:hover {
+    border-color: #ffffff;
+    background-color: #1a1a1a;
+}
+
+.hero-card-frame {
+    border: 2px solid #f1b82d;
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: #111111;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-card-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.info-cards-section {
+    padding-bottom: 80px;
+    background-color: #050505;
+}
+
+.cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    background-color: #2b2a2a;
+    border-radius: 12px;
+    padding: 28px 32px;
+}
+
+.card-title {
+    color: #f1b82d;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.card-text {
+    color: #dddddd;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   4. PÁGINAS INTERNAS (PESQUISA, CARDS E TABELAS)
+   ========================================================================== */
+.page-content {
+    flex: 1;
+    padding: 40px 0 80px 0;
+    position: relative;
+}
+
+.filter-bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 35px;
+    gap: 20px;
+}
+
+.search-box-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    max-width: 650px;
+}
+
+.search-label {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.search-input {
+    width: 100%;
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 15px;
+    color: #111111;
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: #777777;
+}
+
+.filter-actions-group {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.select-box-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.select-label {
+    font-size: 13px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.custom-select {
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #000000;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-action-yellow {
+    background-color: #f1b82d;
+    color: #000000;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 28px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.btn-action-yellow:hover {
+    background-color: #e0a720;
+}
+
+/* CATEGORIAS */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.category-card {
+    background-color: #d9d9d9;
+    border-radius: 16px;
+    padding: 24px 20px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px;
+}
+
+.category-title {
+    color: #e0a213;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.card-actions-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    align-items: center;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    transition: transform 0.1s;
+}
+
+.icon-btn:hover {
+    transform: scale(1.15);
+}
+
+.icon-edit {
+    color: #27ae60;
+}
+
+.icon-delete {
+    color: #e74c3c;
+}
+
+/* PRODUTOS */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+}
+
+.product-card {
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.product-img-box {
+    width: 100%;
+    height: 220px;
+    background-color: #0d0d0d;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-title {
+    color: #f1b82d;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.product-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.product-info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.info-value {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.info-value.highlight-yellow {
+    color: #f1b82d;
+}
+
+/* BOTÃO FLUTUANTE DE ADICIONAR (FAB) */
+.fab-add-button {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 65px;
+    height: 65px;
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, background-color 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.fab-add-button:hover {
+    transform: scale(1.08);
+    background-color: #ffffff;
+}
+
+.fab-add-button span {
+    color: #f1b82d;
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+/* USUÁRIOS */
+.users-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.users-title-box h1 {
+    color: #f1b82d;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.users-title-box p {
+    color: #aaaaaa;
+    font-size: 14px;
+}
+
+.table-users-wrapper {
+    background-color: #ffffff;
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+}
+
+.table-users {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.table-users th {
+    background-color: #f1b82d;
+    color: #000000;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.table-users td {
+    padding: 20px 24px;
+    color: #000000;
+    font-size: 15px;
+    font-weight: 500;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.badge-user-status {
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 15px;
+    display: inline-block;
+    text-align: center;
+    min-width: 100px;
+}
+
+.badge-user-status.active {
+    background-color: #00c853;
+    color: #000000;
+}
+
+.badge-user-status.inactive {
+    background-color: #d50000;
+    color: #ffffff;
+}
+
+/* MOVIMENTAÇÕES */
+.table-mov-wrapper {
+    background-color: #d9d9d9;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.table-mov {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.table-mov th {
+    background-color: #f1b82d;
+    color: #000000;
+    padding: 16px 20px;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.table-mov td {
+    padding: 18px 20px;
+    color: #000000;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid #bfbfbf;
+}
+
+.text-type-e {
+    color: #27ae60;
+    font-weight: 700;
+}
+
+.text-type-s {
+    color: #e74c3c;
+    font-weight: 700;
+}
+
+.table-mov .icon-btn {
+    color: #000000;
+}
+
+/* ==========================================================================
+   5. RODAPÉ
+   ========================================================================== */
+.lp-footer {
+    background-color: #000000;
+    padding: 24px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: auto;
+}
+
+.lp-footer p {
+    color: #666666;
+    font-size: 13px;
+}
+
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+}

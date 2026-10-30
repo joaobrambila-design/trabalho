@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários - Renovacell</title>
+    <link rel="stylesheet" href="/css/estilos-lp.css">
+</head>
+<body class="lp-body">
+
+    <header class="lp-header">
+        <div class="lp-container nav-container">
+            <a href="/" class="nav-logo">
+                <img src="/img/logo.png" alt="Renovacell Logo">
+            </a>
+            <nav class="nav-menu">
+                <a href="/" class="nav-link">Início</a>
+                <a href="/produtos" class="nav-link">Produtos</a>
+
+                <% if (typeof usuarioLogado !== 'undefined' && usuarioLogado && usuarioLogado.id_admin !== null) { %>
+                    <a href="/categorias" class="nav-link">Categorias</a>
+                    <a href="/usuarios" class="nav-link active">Usuário</a>
+                    <a href="/movimentacoes" class="nav-link">Movimentações</a>
+                    <a href="/logout" class="btn-nav-outline">Sair (<%= usuarioLogado.nome %>)</a>
+                <% } else if (typeof usuarioLogado !== 'undefined' && usuarioLogado) { %>
+                    <a href="/logout" class="btn-nav-outline">Sair (<%= usuarioLogado.nome %>)</a>
+                <% } else { %>
+                    <a href="/login" class="btn-nav-outline">Área Administrativa</a>
+                <% } %>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="lp-container">
+            
+            <div class="users-page-header">
+                <div class="users-title-box">
+                    <h1>Usuários</h1>
+                    <p>Tipos Usuáriosd</p>
+                </div>
+                <a href="/registro" class="btn-action-yellow">+ Novo usuários</a>
+            </div>
+
+            <div class="table-users-wrapper">
+                <table class="table-users">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NOME</th>
+                            <th>EMAIL</th>
+                            <th>SENHA</th>
+                            <th>SITUAÇÃO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (typeof usuarios !== 'undefined' && usuarios.length > 0) { %>
+                            <% usuarios.forEach(user => { %>
+                                <tr>
+                                    <td><%= user.id_usuario %></td>
+                                    <td><%= user.nome %></td>
+                                    <td><%= user.email %></td>
+                                    <td>****</td>
+                                    <td>
+                                        <span class="badge-user-status <%= user.status ? 'active' : 'inactive' %>">
+                                            <%= user.status ? 'Ativo' : 'Inativo' %>
+                                        </span>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="5" style="text-align: center; color: #000;">Nenhum usuário cadastrado.</td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="lp-footer">
+        <div class="lp-container">
+            <p>&copy; 2026 Renovacell. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

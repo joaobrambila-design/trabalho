@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renovacell - Início</title>
+    <link rel="stylesheet" href="/css/estilos-lp.css">
+</head>
+<body class="lp-body">
+
+    <header class="lp-header">
+        <div class="lp-container nav-container">
+            <a href="/" class="nav-logo">
+                <img src="/img/logo.png" alt="Renovacell Logo">
+            </a>
+            <nav class="nav-menu">
+                <a href="/" class="nav-link active">Início</a>
+                <a href="/produtos" class="nav-link">Produtos</a>
+
+                <!-- Se for ADMIN, exibe os menus de gestão -->
+                <% if (typeof usuarioLogado !== 'undefined' && usuarioLogado && usuarioLogado.id_admin !== null) { %>
+                    <a href="/categorias" class="nav-link">Categorias</a>
+                    <a href="/usuarios" class="nav-link">Usuário</a>
+                    <a href="/movimentacoes" class="nav-link">Movimentações</a>
+                    <a href="/logout" class="btn-nav-outline">Sair (<%= usuarioLogado.nome %>)</a>
+                
+                <!-- Se for USUÁRIO COMUM -->
+                <% } else if (typeof usuarioLogado !== 'undefined' && usuarioLogado) { %>
+                    <a href="/logout" class="btn-nav-outline">Sair (<%= usuarioLogado.nome %>)</a>
+                
+                <!-- Se NÃO estiver logado -->
+                <% } else { %>
+                    <a href="/login" class="btn-nav-outline">Área Administrativa</a>
+                <% } %>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="lp-container hero-grid">
+            <div class="hero-text-col">
+                <h1 class="hero-title">
+                    Viva a experiência da <span class="highlight">paixão, equilíbrio</span> e <span class="highlight">tecnologia</span>.
+                </h1>
+                <p class="hero-description">
+                    A RenovaCell é uma empresa especializada no comércio e gestão de produtos de tecnologia, smartphones, capas, carregadores e acessórios.
+                </p>
+                <div class="hero-actions">
+                    <a href="/produtos" class="btn-yellow">Ver Produtos</a>
+                    <a href="/login" class="btn-outline-dark">Fale Conosco</a>
+                </div>
+            </div>
+
+            <div class="hero-img-col">
+                <div class="hero-card-frame">
+                    <img src="/img/hero-produtos.jpg" alt="Produtos Renovacell">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-cards-section">
+        <div class="lp-container cards-stack">
+            <div class="info-card">
+                <h3 class="card-title">Missão</h3>
+                <p class="card-text">
+                    Proporcionar o acesso à melhor tecnologia em smartphones através de produtos de excelência, orientação transparente e atendimento humano. Queremos que cada cliente tenha uma experiência simples, confiável e satisfatória ao renovar o seu celular.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3 class="card-title">Visão</h3>
+                <p class="card-text">
+                    Ser referência na venda e renovação de celulares, reconhecida por unir inovação, preço justo, responsabilidade e excelência no atendimento, conectando pessoas ao futuro de forma acessível.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3 class="card-title">Valores</h3>
+                <p class="card-text">
+                    Ética, transparência, inovação, respeito ao cliente, garantia de qualidade em cada aparelho e compromisso com a satisfação do consumidor antes e depois da compra.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="lp-footer">
+        <div class="lp-container">
+            <p>&copy; 2026 Renovacell. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
